@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topo — Dyhedral design system</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  .doc { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: var(--s-7); align-items: start; }
+  .toc { position: sticky; top: var(--s-5); padding-top: var(--s-7); display: grid; gap: var(--s-2); }
+  .toc a { text-decoration: none; }
+  .toc a:hover { color: var(--text); }
+  .doc section { padding: var(--s-7) 0; border-top: var(--hair) solid var(--rule); scroll-margin-top: var(--s-4); }
+  .doc section > .t-label { display: block; margin-bottom: var(--s-4); }
+  .doc section > h2 { font-size: var(--size-5); margin-bottom: var(--s-5); }
+  .intro { padding: var(--s-7) 0; }
+  .sw { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: var(--s-4); }
+  .sw > div { border: var(--hair) solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .sw i { display: block; height: 72px; border-bottom: var(--hair) solid var(--rule); }
+  .sw b { display: block; padding: 10px 12px 0; font-size: 15px; }
+  .sw span { display: block; padding: 2px 12px 10px; }
+  .spec > div { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: var(--s-5); padding: var(--s-4) 0; border-top: var(--hair) solid var(--rule); align-items: baseline; }
+  .space i { display: inline-block; height: 14px; background: var(--text); border-radius: 2px; vertical-align: middle; }
+  .shape { width: 96px; height: 64px; border: var(--hair) solid var(--text); background: var(--surface); display: grid; place-items: center; }
+  .logo-box { display: grid; place-items: center; min-height: 150px; border: var(--hair) solid var(--rule); border-radius: var(--radius-lg); }
+  .demo { display: grid; gap: var(--s-6); }
+  .demo > div > .t-label { display: block; margin-bottom: var(--s-3); }
+  @media (max-width: 860px) {
+    .doc { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .toc { position: static; padding: var(--s-5) 0 0; grid-auto-flow: column; overflow-x: auto; gap: var(--s-4); }
+    .spec > div { grid-template-columns: minmax(0, 1fr); gap: var(--s-2); }
+  }
+</style>
+</head>
+<body>
+<div class="t-page">
+  <header class="t-nav">
+    <a class="t-wordmark" href="../index.html">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 28 16 4l11 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M16 4v24" stroke="var(--signal-text)" stroke-width="2.6"/></svg>
+      dyhedral
+    </a>
+    <div class="t-row">
+      <span class="t-label">Topo v0.2</span>
+      <button class="t-btn t-btn--quiet t-btn--plain" id="theme" type="button" style="padding:8px 12px;font-size:14px">Dark</button>
+    </div>
+  </header>
+
+  <div class="intro t-stack">
+    <div class="t-label">Design system</div>
+    <h1>Topo</h1>
+    <p class="t-lede">The look of a climbing guidebook: text first, drawn in line, labelled like a map. Cool granite paper, spruce ink, and one <span class="t-mark">lichen</span> signal.</p>
+  </div>
+
+  <div class="doc">
+    <nav class="toc" aria-label="Sections">
+      <a class="t-label" href="#principles">01 Principles</a>
+      <a class="t-label" href="#logo">02 Logo</a>
+      <a class="t-label" href="#colour">03 Colour</a>
+      <a class="t-label" href="#type">04 Type</a>
+      <a class="t-label" href="#space">05 Space &amp; shape</a>
+      <a class="t-label" href="#components">06 Components</a>
+      <a class="t-label" href="#rules">07 Do &amp; don't</a>
+    </nav>
+
+    <main>
+      <section id="principles">
+        <span class="t-label">01 / Principles</span>
+        <div class="t-ledger">
+          <div><span class="t-label">01</span><h3>Text first</h3><p class="t-muted t-small">The words do the work. Layout is a column, a rule and space. If a page works as plain text, it will work designed.</p></div>
+          <div><span class="t-label">02</span><h3>One signal</h3><p class="t-muted t-small">Lichen appears once per screen, on the thing that matters most. Everything else is ink and granite.</p></div>
+          <div><span class="t-label">03</span><h3>Labelled like a map</h3><p class="t-muted t-small">Small mono captions say what a thing is: a number, a grade, a unit, a status. No decoration without information.</p></div>
+          <div><span class="t-label">04</span><h3>Drawn, not rendered</h3><p class="t-muted t-small">Pictures are line diagrams in ink. No stock photos, no 3D, no gradients, no generated imagery.</p></div>
+        </div>
+      </section>
+
+      <section id="logo">
+        <span class="t-label">02 / Logo</span>
+        <div class="t-cols">
+          <div class="logo-box">
+            <span class="t-wordmark" style="font-size:40px"><svg viewBox="0 0 32 32" style="width:44px;height:44px" aria-hidden="true"><path d="M5 28 16 4l11 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M16 4v24" stroke="var(--signal-text)" stroke-width="2.6"/></svg>dyhedral</span>
+          </div>
+          <div class="logo-box t-inverse" style="border-color:transparent">
+            <span class="t-wordmark" style="font-size:40px;color:var(--inverse-text)"><svg viewBox="0 0 32 32" style="width:44px;height:44px" aria-hidden="true"><path d="M5 28 16 4l11 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M16 4v24" stroke="var(--lichen)" stroke-width="2.6"/></svg>dyhedral</span>
+          </div>
+        </div>
+        <p class="t-muted t-small t-body" style="margin-top:var(--s-4)">The mark is two faces meeting on a line: the corner in ink, the route in lichen. The wordmark is lowercase Instrument Sans 700 at -4% tracking. Keep clear space equal to the mark's width on every side. Do not recolour, outline, rotate or set the name in capitals.</p>
+      </section>
+
+      <section id="colour">
+        <span class="t-label">03 / Colour</span>
+        <div class="sw" id="swatches"></div>
+        <div class="t-table-wrap" style="margin-top:var(--s-6)">
+          <table class="t-table" id="contrast"><thead><tr><th>Pair</th><th>Use</th><th class="num">Contrast</th><th class="num">WCAG</th></tr></thead><tbody></tbody></table>
+        </div>
+        <p class="t-note" style="margin-top:var(--s-5)">Lichen fails as text on granite. Use it as a fill behind ink, or use lichen ink when green must be read.</p>
+      </section>
+
+      <section id="type">
+        <span class="t-label">04 / Type</span>
+        <div class="spec">
+          <div><span class="t-label">H1 / 700 / -4%</span><div class="t-h1 t-display">One line up.</div></div>
+          <div><span class="t-label">H2 / 700 / -3.5%</span><div class="t-h2 t-display">Got a route in mind?</div></div>
+          <div><span class="t-label">Statement / 600</span><p class="t-statement">The angle where two planes meet.</p></div>
+          <div><span class="t-label">H3 / 650</span><h3>Sandboxed runtimes</h3></div>
+          <div><span class="t-label">Lede / 22</span><p class="t-lede">Infrastructure consulting for software teams and the AI agents working beside them.</p></div>
+          <div><span class="t-label">Body / 18 / 1.55</span><p class="t-body">Body copy is Instrument Sans at 400. Lines stop near sixty characters. A paragraph says one thing, with a <a href="#type">link styled like this</a> and <code>inline code</code> where needed.</p></div>
+          <div><span class="t-label">Label / mono 12</span><span class="t-label" style="color:var(--text)">Pitch 03 / Grade 5.9 / 38 m</span></div>
+          <div><span class="t-label">Quote</span><blockquote>Say what it does, in the order it does it.<cite class="t-label">House rule</cite></blockquote></div>
+        </div>
+      </section>
+
+      <section id="space">
+        <span class="t-label">05 / Space &amp; shape</span>
+        <div class="t-cols">
+          <div class="space t-stack" id="spacing"></div>
+          <div class="t-stack">
+            <div class="t-row"><div class="shape" style="border-radius:var(--radius-sm)"><span class="t-label">4</span></div><div class="shape" style="border-radius:var(--radius)"><span class="t-label">8</span></div><div class="shape" style="border-radius:var(--radius-lg)"><span class="t-label">14</span></div></div>
+            <p class="t-muted t-small">Three radii: 4px for tags and marks, 8px for buttons and fields, 14px for panels and figures. Nothing is a pill.</p>
+            <hr class="t-rule t-rule--heavy"><p class="t-muted t-small">Heavy rule, 3px: opens a block.</p>
+            <hr class="t-rule"><p class="t-muted t-small">Hairline, 1px: separates rows inside it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="components">
+        <span class="t-label">06 / Components</span>
+        <div class="demo">
+          <div><span class="t-label">Buttons</span>
+            <div class="t-row"><a class="t-btn" href="#components">Get in touch</a><a class="t-btn t-btn--quiet" href="#components">Read the notes</a><a class="t-btn" aria-disabled="true">Unavailable</a></div></div>
+          <div><span class="t-label">Tags</span>
+            <div class="t-row"><span class="t-tag">v0.2</span><span class="t-tag t-tag--signal">In development</span><span class="t-tag t-tag--quiet">Draft</span><span class="t-tag t-tag--danger">Failed</span></div></div>
+          <div><span class="t-label">Fields</span>
+            <div class="t-cols">
+              <div class="t-field"><label for="f1">Email</label><input id="f1" type="email" placeholder="you@company.com"><span class="t-help">We reply within two working days.</span></div>
+              <div class="t-field t-field--error"><label for="f2">Repository</label><input id="f2" value="acme/"><span class="t-help">Enter the full owner/name.</span></div>
+            </div></div>
+          <div><span class="t-label">Note</span><p class="t-note">Lastpitch is in development. There is no pricing or release date yet.</p></div>
+          <div><span class="t-label">List</span><ul class="t-list t-body"><li>Kubernetes and cloud foundations</li><li>Sandboxed agent runtimes</li><li>Observability and on-call</li></ul></div>
+          <div><span class="t-label">Table and stats</span>
+            <div class="t-cols" style="align-items:start">
+              <div class="t-table-wrap"><table class="t-table"><thead><tr><th>Run</th><th>Agent</th><th class="num">Time</th></tr></thead><tbody><tr><td>r-0142</td><td>coding-agent</td><td class="num">4m 12s</td></tr><tr><td>r-0141</td><td>reviewer</td><td class="num">58s</td></tr></tbody></table></div>
+              <div class="t-row" style="gap:var(--s-7)"><div class="t-stat"><b>14</b><span class="t-label">Tool calls</span></div><div class="t-stat"><b>38 m</b><span class="t-label">Pitch length</span></div></div>
+            </div></div>
+          <div><span class="t-label">Panel and terminal</span>
+            <div class="t-cols">
+              <div class="t-panel t-stack"><span class="t-label">Panel</span><h3>A border, not a shadow</h3><p class="t-muted t-small">For the one thing on a page that needs a frame.</p></div>
+              <div class="t-term"><div><span class="dim">$</span> pitch run coding-agent</div><div class="dim">→ sandbox ready</div><div><span class="ok">✓</span> draft PR opened</div></div>
+            </div></div>
+          <div><span class="t-label">Figure</span>
+            <figure class="t-figure" style="max-width:420px"><svg viewBox="0 0 420 180" role="img" aria-label="Line diagram of a dihedral"><g fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round"><path d="M60 160 210 140 210 20 100 44Z"/><path d="M210 140 360 160 330 44 210 20Z"/></g><path d="M210 140V20" stroke="var(--text)" stroke-width="3.5"/><rect x="203" y="74" width="14" height="14" rx="3" fill="var(--signal)" stroke="var(--text)" stroke-width="1.6"/></svg><figcaption>FIG. 1 / TWO FACES, ONE LINE</figcaption></figure></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="t-inverse t-section">
+  <div class="t-page t-stack">
+    <span class="t-tag t-tag--signal">Inverse band</span>
+    <h2>Spruce block</h2>
+    <p class="t-lede">One per page, for the section that should stop the eye. Lastpitch pages use this as their default surface.</p>
+    <div><a class="t-btn" href="#components">Primary on spruce</a></div>
+  </div>
+</div>
+
+<div class="t-page">
+  <section id="rules" class="t-section">
+    <span class="t-label">07 / Do &amp; don't</span>
+    <div class="t-cols" style="margin-top:var(--s-4)">
+      <div><h3>Do</h3><ul class="t-list t-small" style="margin-top:var(--s-3)">
+        <li>Lead with the sentence, then design around it.</li><li>Use lichen once per screen.</li>
+        <li>Separate with rules and space before reaching for a box.</li><li>Label with numbers, grades and units.</li>
+        <li>Keep a landing page under 200 words.</li></ul></div>
+      <div><h3>Don't</h3><ul class="t-list t-small" style="margin-top:var(--s-3)">
+        <li>Gradients, glows, glass or blur.</li><li>Purple, indigo or violet.</li>
+        <li>Cream paper with orange, or serif headlines.</li><li>Pill buttons, card grids or soft shadows.</li>
+        <li>Sparkle icons, emoji bullets or a centred prompt box.</li></ul></div>
+    </div>
+  </section>
+  <footer class="t-footer"><span class="t-label">Topo v0.2 / Dyhedral LLC</span><span class="t-label">tokens.css is the source of truth</span></footer>
+</div>
+
+<script>
+  // Swatches, contrast and spacing are read from tokens.css so this page cannot drift from it.
+  const root = document.documentElement;
+  const css = n => getComputedStyle(root).getPropertyValue(n).trim();
+  const probe = document.createElement('i'); probe.style.display = 'none'; document.body.appendChild(probe);
+  const rgb = v => { probe.style.color = ''; probe.style.color = v; return getComputedStyle(probe).color.match(/[\d.]+/g).slice(0, 3).map(Number); };
+  const hex = v => '#' + rgb(v).map(x => Math.round(x).toString(16).padStart(2, '0')).join('');
+  const lum = v => { const [r, g, b] = rgb(v).map(x => { x /= 255; return x <= .03928 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4; }); return .2126 * r + .7152 * g + .0722 * b; };
+  const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + .05) / (y + .05); };
+
+  const palette = [['--bg', 'Background', 'page'], ['--bg-alt', 'Background alt', 'bands, code'], ['--surface', 'Surface', 'panels, fields'],
+    ['--rule', 'Rule', 'hairlines'], ['--text-3', 'Text 3', 'placeholders'], ['--text-2', 'Text 2', 'secondary'],
+    ['--text', 'Text', 'ink'], ['--signal', 'Signal', 'lichen fill'], ['--signal-text', 'Signal text', 'lichen as text'],
+    ['--link', 'Link', 'underlines'], ['--ok', 'OK', 'success'], ['--danger', 'Danger', 'errors only']];
+  const pairs = [['--text', '--bg', 'Body text'], ['--text-2', '--bg', 'Secondary text'], ['--text-3', '--bg', 'Placeholders'],
+    ['--on-signal', '--signal', 'Ink on lichen'], ['--signal-text', '--bg', 'Lichen as text'], ['--signal', '--bg', 'Lichen on page (fill only)'],
+    ['--link', '--bg', 'Link underline'], ['--danger', '--bg', 'Error text'], ['--inverse-text', '--inverse-bg', 'Inverse band']];
+
+  function render() {
+    document.getElementById('swatches').innerHTML = palette.map(([v, name, use]) =>
+      `<div><i style="background:var(${v})"></i><b>${name}</b><span class="t-label">${hex(css(v))} · ${use}</span></div>`).join('');
+    document.querySelector('#contrast tbody').innerHTML = pairs.map(([f, b, use]) => {
+      const r = ratio(css(f), css(b)); const grade = r >= 7 ? 'AAA' : r >= 4.5 ? 'AA' : r >= 3 ? 'AA large' : 'Fail';
+      return `<tr><td><code>${f}</code> on <code>${b}</code></td><td>${use}</td><td class="num">${r.toFixed(1)}:1</td><td class="num"><span class="t-tag ${r < 3 ? 't-tag--danger' : 't-tag--quiet'}">${grade}</span></td></tr>`; }).join('');
+    document.getElementById('spacing').innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(n =>
+      `<div class="t-row" style="gap:var(--s-3)"><span class="t-label" style="width:9ch">s-${n} · ${css('--s-' + n)}</span><i style="width:var(--s-${n})"></i></div>`).join('');
+  }
+  const btn = document.getElementById('theme');
+  const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  const label = () => btn.textContent = isDark() ? 'Light' : 'Dark';
+  btn.addEventListener('click', () => { root.dataset.theme = isDark() ? 'light' : 'dark'; label(); render(); });
+  label(); render();
+</script>
+</body>
+</html>
