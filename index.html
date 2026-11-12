@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dyhedral — infrastructure consulting</title>
+<meta name="description" content="Dyhedral LLC: infrastructure consulting for software teams and the AI agents working beside them. Based in Maine.">
+<meta property="og:title" content="Dyhedral">
+<meta property="og:description" content="Two faces. One line up. Infrastructure consulting from Maine.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dyhedral.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230e2620'/%3E%3Cpath d='M6 26 16 6l10 20' fill='none' stroke='%23e9f0ec' stroke-width='2.5'/%3E%3Cpath d='M16 6v20' stroke='%239fc21c' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="design-system/tokens.css">
+<style>
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: var(--s-5) 0; border-bottom: var(--heavy) solid var(--rule-strong); }
+  .brand { display: flex; align-items: center; gap: var(--s-3); text-decoration: none; color: var(--text); font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.04em; }
+  .brand svg { width: 24px; height: 24px; }
+  .nav a.t-label { text-decoration: none; }
+  .nav a.t-label:hover { color: var(--text); }
+
+  .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: var(--s-7); align-items: end; padding: var(--s-8) 0 var(--s-8); }
+  .hero h1 { margin: var(--s-4) 0 var(--s-5); }
+  .hero .t-lede { margin: 0 0 var(--s-6); }
+  .hero svg { width: 100%; height: auto; display: block; }
+
+  section { padding: var(--s-8) 0; }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-7); align-items: center; }
+  .ledger-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--s-4); }
+  .t-ledger p { margin: 0; color: var(--text-2); font-size: var(--size-2); }
+  .name { border-radius: var(--radius-lg); }
+  .name p { font-family: var(--font-display); font-size: var(--size-5); font-weight: 600; letter-spacing: -0.025em; line-height: 1.2; letter-spacing: -0.01em; max-width: 26ch; margin: var(--s-4) 0 0; }
+  .lastpitch h2 { margin: var(--s-4) 0; }
+  .contact { text-align: left; }
+  .contact a { display: inline-block; margin-top: var(--s-5); color: var(--text); font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 5vw, 60px); letter-spacing: -0.04em; text-decoration-color: var(--signal); text-decoration-thickness: 6px; text-underline-offset: 8px; }
+  footer { display: flex; justify-content: space-between; gap: var(--s-4); padding: var(--s-5) 0 var(--s-7); border-top: var(--heavy) solid var(--rule-strong); }
+
+  @media (max-width: 820px) {
+    .hero, .split { grid-template-columns: minmax(0, 1fr); }
+    .hero { padding: var(--s-7) 0; }
+    .hero figure { max-width: 320px; }
+    section { padding: var(--s-7) 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="t-page">
+  <header class="nav">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 28 16 4l11 24" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M16 4v24" stroke="var(--signal-text)" stroke-width="2.6"/></svg>
+      dyhedral
+    </a>
+    <a class="t-label" href="#contact">Contact →</a>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <div class="t-label">Dyhedral LLC / Maine</div>
+        <h1>Two faces.<br><span class="t-mark">One line up.</span></h1>
+        <p class="t-lede">Infrastructure consulting for software teams and the AI agents working beside them.</p>
+        <a class="t-btn" href="#contact">Get in touch</a>
+      </div>
+      <figure style="margin:0">
+        <svg viewBox="0 0 360 440" role="img" aria-label="Line drawing of two rock faces meeting in a corner, with a route marked up the join">
+          <g fill="none" stroke="var(--rule)" stroke-width="1">
+            <path d="M52 372 188 352"/><path d="M58 312 186 294"/><path d="M64 252 184 236"/><path d="M70 192 182 178"/><path d="M76 132 180 120"/>
+            <path d="M188 352 322 374"/><path d="M186 294 316 318"/><path d="M184 236 310 262"/><path d="M182 178 304 206"/><path d="M180 120 298 150"/>
+          </g>
+          <polygon points="44,420 190,400 176,24 84,74" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round"/>
+          <polygon points="190,400 330,420 292,96 176,24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M190 400 176 24" stroke="var(--text)" stroke-width="3.5"/>
+          <path d="M196 392 C 204 350, 176 330, 188 292 S 200 236, 182 204 S 192 140, 180 108 S 182 60, 178 36" fill="none" stroke="var(--text)" stroke-width="1.6" stroke-dasharray="5 6"/>
+          <g fill="var(--signal)" stroke="var(--text)" stroke-width="1.6">
+            <rect x="182" y="286" width="12" height="12" rx="3"/><rect x="176" y="198" width="12" height="12" rx="3"/><rect x="174" y="102" width="12" height="12" rx="3"/>
+          </g>
+          <rect x="166" y="14" width="22" height="22" rx="5" fill="var(--signal)" stroke="var(--text)" stroke-width="2"/>
+          <text x="214" y="300" font-family="Spline Sans Mono, monospace" font-size="11" fill="var(--text-2)">P1</text>
+          <text x="208" y="212" font-family="Spline Sans Mono, monospace" font-size="11" fill="var(--text-2)">P2</text>
+          <text x="206" y="116" font-family="Spline Sans Mono, monospace" font-size="11" fill="var(--text-2)">P3</text>
+        </svg>
+      </figure>
+    </div>
+
+    <section style="padding-top:0">
+      <div class="ledger-head"><div class="t-label">Consulting</div><div class="t-label">03 routes</div></div>
+      <div class="t-ledger">
+        <div><span class="t-label">01</span><h3>Platforms</h3><p>Kubernetes and cloud foundations, built as code.</p></div>
+        <div><span class="t-label">02</span><h3>Agents</h3><p>Sandboxed runtimes, policy and tooling for AI coding agents.</p></div>
+        <div><span class="t-label">03</span><h3>Reliability</h3><p>Observability and on-call that hold up at 3am.</p></div>
+      </div>
+    </section>
+
+    <section class="name t-contours" style="border-top: var(--hair) solid var(--rule)">
+      <div class="t-label">di·he·dral, noun</div>
+      <p>The angle where two planes meet. Climbers brace against both walls to go up. Wings are set at one to stay level.</p>
+    </section>
+  </main>
+</div>
+
+<section class="lastpitch t-inverse">
+  <div class="t-page split">
+    <div>
+      <span class="t-tag t-tag--signal">In development</span>
+      <h2>Lastpitch</h2>
+      <p class="t-lede" style="margin:0">Coding agents on your own cluster. Every run sandboxed, every change a draft pull request.</p>
+    </div>
+    <div class="t-term" aria-label="Example terminal session">
+      <div><span class="dim">$</span> pitch run coding-agent --repo acme/api</div>
+      <div class="dim">→ sandbox ready, agent working</div>
+      <div><span class="ok">✓</span> draft PR opened</div>
+    </div>
+  </div>
+</section>
+
+<div class="t-page">
+  <section id="contact" class="contact">
+    <div class="t-label">Contact</div>
+    <h2 style="margin-top: var(--s-4)">Got a route in mind?</h2>
+    <a href="mailto:hello@dyhedral.com">hello@dyhedral.com</a>
+  </section>
+  <footer>
+    <span class="t-label">© 2026 Dyhedral LLC</span>
+    <span class="t-label">Maine, USA</span>
+  </footer>
+</div>
+
+</body>
+</html>
